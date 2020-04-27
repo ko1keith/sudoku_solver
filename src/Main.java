@@ -3,7 +3,10 @@ public class Main {
 
         Board testBoard = new Board();
 
-        testBoard.printBoard();
+        Solver solver = new Solver(testBoard);
+
+        solver.solve();
+
 
 
     }

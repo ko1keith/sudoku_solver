@@ -1,5 +1,8 @@
 import java.util.Arrays;
 
+/**
+ * Represents a Sudolu board
+ */
 public class Board {
 
     // instance variables
@@ -7,7 +10,7 @@ public class Board {
 
     //Contructor
     public Board(){
-        this.board = createNewBoard();
+        board = createNewBoard();
     }
 
 
@@ -25,13 +28,13 @@ public class Board {
 
     }
 
-    public void printBoard(){
-        for (int row = 0; row < this.board.length; row++){
-            for(int col = 0; col < this.board.length; col++){
-                System.out.print(this.board[row][col] + "\t");
-            }
-            System.out.println();
-        }
+
+
+    public int[][] getBoard() {
+        return board;
     }
 
+    public void setBoard(int[][] board){
+        this.board = board;
+    }
 }
