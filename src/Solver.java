@@ -40,10 +40,11 @@ public class Solver {
                 return false;
             }else if(grid[row][i] !=0 && grid[row][i] == num){ //check if num is already in col
                 return false;
-            }else if(){
-
+            }else if(grid[2 * (row/2) + i/2][2 * (col/2) + i%2] != 0 && rid[2 * (row/2) + i/2][2 * (col/2) + i%2] == num){
+                return false;
             }
         }
+        return true;
     }
 
     public Board getSolvedBoard(){
