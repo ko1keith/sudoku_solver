@@ -34,8 +34,16 @@ public class Solver {
 
     // Given the grid, index of current cell, and possible cell num, check if it is valid according
     // the 3 sudoku constraints
-    public void checkCell(int[][] grid,  int row, int col, int num){
+    public boolean checkCell(int[][] grid,  int row, int col, int num){
+        for(int i = 0; i < 4; i++){
+            if (grid[i][col] != 0 && grid[i][col] == num) { //check if num is already in row
+                return false;
+            }else if(grid[row][i] !=0 && grid[row][i] == num){ //check if num is already in col
+                return false;
+            }else if(){
 
+            }
+        }
     }
 
     public Board getSolvedBoard(){
