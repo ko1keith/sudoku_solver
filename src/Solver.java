@@ -11,10 +11,11 @@ public class Solver {
 
     public Solver(Board board){
         boardToSolve = board;
+        grid = boardToSolve.getBoard();
+
     }
 
-    public void solve(){
-        grid = boardToSolve.getBoard();
+    public boolean solve(int[][] grid){
 
         //print initial board
         printGrid();
@@ -24,11 +25,22 @@ public class Solver {
             for(int col = 0; col < grid.length; col++){
                 // If the current cell is 0, then look for valid option
                 if(grid[row][col] == 0){
+                    for( int num = 1; num <= 4; num++){ // check 1 through 4
+                        if(checkCell(grid, row, col, num)){ // if current board is valid (no rules broken)
+                            grid[row][col] = num; //try current num
 
+                            if(solve(grid)){
+                                return true;
+                            }else{
+                                grid[row][col] = 0;
+                            }
+                        }
+                    }
+                    return false;
                 }
-
             }
         }
+        return true;
 
     }
 
