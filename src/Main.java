@@ -8,7 +8,15 @@ public class Main {
 
         Solver solver = new Solver(testBoard);
 
-        solver.solve();
+        int[][] grid = testBoard.getBoard();
+
+        System.out.println("Unsolved board.");
+        solver.printGrid();
+
+        solver.solve(grid);
+
+        System.out.println("Solved board.");
+        solver.printGrid();
 
 
 

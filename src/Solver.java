@@ -3,11 +3,9 @@
  */
 public class Solver {
 
-    private int[][] finsihedGrid;
     private int[][] grid;
 
     private Board boardToSolve;
-    private Board solvedBoard;
 
     public Solver(Board board){
         boardToSolve = board;
@@ -16,9 +14,6 @@ public class Solver {
     }
 
     public boolean solve(int[][] grid){
-
-        //print initial board
-        printGrid();
 
         // iterate through each cell in the sudoku board
         for(int row = 0; row < grid.length; row++){
@@ -52,15 +47,11 @@ public class Solver {
                 return false;
             }else if(grid[row][i] !=0 && grid[row][i] == num){ //check if num is already in col
                 return false;
-            }else if(grid[2 * (row/2) + i/2][2 * (col/2) + i%2] != 0 && rid[2 * (row/2) + i/2][2 * (col/2) + i%2] == num){
+            }else if(grid[2 * (row/2) + i/2][2 * (col/2) + i%2] != 0 && grid[2 * (row/2) + i/2][2 * (col/2) + i%2] == num){
                 return false;
             }
         }
         return true;
-    }
-
-    public Board getSolvedBoard(){
-        return solvedBoard;
     }
 
     public void printGrid(){
